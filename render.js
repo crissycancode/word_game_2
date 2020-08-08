@@ -1,8 +1,10 @@
 export class Render{
-  constructor(){
+  constructor(element){
     this.boxesElement = document.getElementById('boxes');
     this.wordsElement = document.getElementById('words');
-    this.answer = '';
+    // this.answer = '';
+
+
   }
 
   writeWordsPerId(words,id){
@@ -29,36 +31,36 @@ export class Render{
   }
 
   createBox(){ //D R O P P A B L E
-    const BOX = document.createElement('div');
+    const box = document.createElement('div');
     // BOX.classList.add("card","border-dark", "mb-3", "box", "droppable");
-    BOX.classList.add("border-dark", "mb-3", "box", "droppable");
+    box.classList.add("border-dark", "mb-3", "box", "droppable");
 
-    this.boxesElement.appendChild(BOX);
-    const BOX_BODY = document.createElement('div');
-    BOX_BODY.classList.add("card-body");
-    BOX.appendChild(BOX_BODY);
+    this.boxesElement.appendChild(box);
+    const box_body = document.createElement('div');
+    box_body.classList.add("card-body");
+    box.appendChild(box_body);
     
   }
 
-  createWords(words){ // D R A G G A B L E
-    const WORDS = document.createElement('div');
+  createWords(wr){ // D R A G G A B L E
+    const words = document.createElement('div');
     // WORDS.classList.add("card", "text-white", "bg-info", "mb-3", "word", "draggable");
-    WORDS.classList.add("mb-3", "word", "draggable");
-    WORDS.setAttribute("draggable","true");
-    WORDS.setAttribute("data-draggable-id", words);
+    words.classList.add("mb-3", "word", "draggable");
+    words.setAttribute("draggable","true");
+    words.setAttribute("data-draggable-id", wr);
     
 
-    this.wordsElement.appendChild(WORDS);
-    const WORDS_BODY = document.createElement('div');
-    WORDS_BODY.classList.add("card-body");
-    WORDS_BODY.style.padding = '5px';
-    WORDS.appendChild(WORDS_BODY);
+    this.wordsElement.appendChild(words);
+    const words_body = document.createElement('div');
+    words_body.classList.add("card-body");
+    words_body.style.padding = '5px';
+    words.appendChild(words_body);
 
-    const WORD = document.createElement('h4');
-    WORD.classList.add("card-title", "display-4");
-    WORD.textContent = words;
+    const word = document.createElement('h4');
+    word.classList.add("card-title", "display-4");
+    word.textContent = wr;
 
-    WORDS_BODY.appendChild(WORD);
+    words_body.appendChild(word);
   }
 
   checkAnswer(words, isLast){
