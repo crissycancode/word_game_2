@@ -13,7 +13,7 @@ export class JsonData{
 
   async getDataByIndex(index){ //returns a sentence from index
     this.fetchFile().then(data => {
-        this.sentence = JSON.stringify(data[index].sentence);
+        this.sentence = data[index].sentence;
       }
     );
   }
